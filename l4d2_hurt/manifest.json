@@ -1,0 +1,37 @@
+{
+  "id": "l4d2_hurt",
+  "name": "L4D2 受伤",
+  "version": "0.1.0",
+  "sdk": "1",
+  "author": "yufun",
+  "description": "L4D2 受伤触发郊狼",
+  "entry": "main.py",
+  "config_schema": [
+    {
+      "section": "强度映射",
+      "fields": [
+        { "key": "delta_multiplier", "type": "number", "label": "伤害倍率", "default": 2.0, "min": 0.1, "max": 10.0, "step": 0.1, "description": "实际强度 = 伤害 × 倍率" },
+        { "key": "delta_max", "type": "percent", "label": "强度上限", "default": 70, "description": "单次触发的最高强度增量" },
+        { "key": "duration_s", "type": "duration", "label": "持续时间", "default": 1.0 }
+      ]
+    },
+    {
+      "section": "波形映射",
+      "fields": [
+        { "key": "preset_default", "type": "preset", "label": "默认波形", "default": "" },
+        { "key": "preset_burn",    "type": "preset", "label": "燃烧",     "default": "" },
+        { "key": "preset_blast",   "type": "preset", "label": "爆炸",     "default": "" },
+        { "key": "preset_fall",    "type": "preset", "label": "坠落",     "default": "" },
+        { "key": "preset_club",    "type": "preset", "label": "钝击",     "default": "" },
+        { "key": "preset_bullet",  "type": "preset", "label": "枪击",     "default": "" },
+        { "key": "preset_acid",    "type": "preset", "label": "酸液",     "default": "" }
+      ]
+    },
+    {
+      "section": "高级",
+      "fields": [
+        { "key": "channel", "type": "channel", "label": "通道", "default": "both" }
+      ]
+    }
+  ]
+}
