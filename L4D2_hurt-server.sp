@@ -19,9 +19,7 @@ public void OnPluginStart() {
     if (g_socket == null) {
         SetFailState("SocketCreate failed");
     }
-
     g_socket.Bind("127.0.0.1", 0);
-
     HookEvent("player_hurt", Event_PlayerHurt);
 }
 
@@ -33,8 +31,11 @@ public void Event_PlayerHurt(Event event, const char[] name, bool dontBroadcast)
     if (victim <= 0 || damage <= 0)
         return;
 
+    
+    if (victim != 1)
+        return;
+
     char payload[32];
     Format(payload, sizeof(payload), "%d|%d", damage, type);
-
     g_socket.SendTo(payload, -1, UDP_HOST, UDP_PORT);
 }
